@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 // Member(회원) 클래스를 저장하는 실제 구현체 
 // 예제에서는 DB 는 없고 메모리로 처리
-@Repository
+
 public class MemoryMemberRepository implements MemberRepository {
 	
 	private static Map<Long, Member> store    = new HashMap<>();

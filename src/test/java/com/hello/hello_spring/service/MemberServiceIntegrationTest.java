@@ -5,27 +5,23 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.hello.hello_spring.domain.Member;
 import com.hello.hello_spring.repository.MemberRepository;
-import com.hello.hello_spring.repository.MemoryMemberRepository;
-import org.assertj.core.api.AbstractThrowableAssert;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
+import org.springframework.transaction.annotation.Transactional;
 
-class MemberServiceTest {
+@SpringBootTest
+@Transactional // test 를 계속 실행할 수 있도록 test data 를 지워준다.
+public class MemberServiceIntegrationTest {
 	
+	@Autowired
 	MemberService    memberService;
+	@Autowired
 	MemberRepository memberRepository;
 	
-	// 각각의 테스트가 실행될때 독립적으로 생성될 수 있도록 함
-	@BeforeEach
-	void setUp() {
-		memberRepository = new MemoryMemberRepository();
-		memberService = new MemberService(memberRepository);
-		memberService.clearAll();
-	}
-	
-	// 테스트 코드 작성은 메소드 이름을 한글로 작성할 수 있다.
 	@Test
+		//	@Commit // transactional 이 있어도 DB 에 데이터를 반영함
 	void 회원가입() {
 		// given
 		Member member = new Member();
@@ -57,13 +53,5 @@ class MemberServiceTest {
 		
 		// then
 		
-	}
-	
-	@Test
-	void findMembers() {
-	}
-	
-	@Test
-	void findOne() {
 	}
 }
