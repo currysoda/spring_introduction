@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
+@Repository
 public class JpaMemberRepository implements MemberRepository {
 	
 	// JPA 는 EntityManager 를 통해 실행된다.

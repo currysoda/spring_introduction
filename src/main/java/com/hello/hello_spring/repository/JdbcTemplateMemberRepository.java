@@ -14,7 +14,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
-
+// 순수 JDBC 에서 JDBC template 를 이용해서 반복 코드를 줄인 버전
 public class JdbcTemplateMemberRepository implements MemberRepository {
 	
 	private final JdbcTemplate jdbcTemplate;

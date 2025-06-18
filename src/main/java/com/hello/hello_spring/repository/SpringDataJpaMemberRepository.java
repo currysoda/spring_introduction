@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
+// spring data jpa 를 이용한 예제 인터페이스만 만들어도 자동으로 구현체를 만들어준다.
 public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Long>, MemberRepository {
 	
 	// 기본적인 메소드는 만들지 않아도 자동으로 만든다.
